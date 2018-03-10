@@ -108,7 +108,7 @@
         <!--&lt;!&ndash; <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> &ndash;&gt;-->
         <!--</table>-->
 
-        <table schema="" tableName="t_sys_tree_node" domainObjectName="SysTreeNode"
+        <table schema="" tableName="t_service" domainObjectName="Service"
         enableCountByExample="false" enableDeleteByExample="false"
         enableSelectByExample="false" enableUpdateByExample="false">
         <!-- 忽略列，不生成bean 字段 -->
