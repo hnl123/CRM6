@@ -9,9 +9,7 @@
 <body>
 
 <div class="page_title">客户服务管理 > 服务分配</div>
-<div class="button_bar">
-	<button class="common_button" onclick="help('');">帮助</button>
-	<button class="common_button" id="reload1">查询</button>
+
 <table class="query_form_table" height="53">
 	<tr>
 		<th height="28">客户</th>
@@ -25,25 +23,15 @@
 				<option value="投诉">投诉</option>
 			</select>
 		</td>
-	</tr>
-	<tr>
-		<th height="22">创建日期</th>
-		<td colspan="3">
-			<input name="T1" id="T1" size="10" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="wdate"/>
-			- <input name="T2" id="T2" size="10" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="wdate" /></td>
-		<th height="22">状态</th>
-		<td>
-			<select name="D1">
-				<option>--请选择--</option>
-				<option value="新创建">新创建</option>
-				<option value="已分配">已分配</option>
-				<option value="已处理">已处理</option>
-				<option value="已归档">已归档</option>
-			</select>
-		</td>
+		<td><button id="dg" class="easyui-linkbutton" iconCls="icon-search">查询</button></td>
 	</tr>
 </table>
-</div>
+
+<%--<div>--%>
+	<%--<input id="svrCustName" />--%>
+	<%--<a id="dg">查询</a>--%>
+<%--</div>--%>
+
 	<div id="dd" class="easyui-dialog" data-options="closed:true" title="服务分配" style="width:400px;height:100px;display: none;">
 		<select class="easyui-combobox" id="svrDueTo" style="width:380px;">
 			<option value="aitem1">aitem1</option>

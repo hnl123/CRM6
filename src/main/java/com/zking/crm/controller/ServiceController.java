@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -84,16 +82,80 @@ public class ServiceController {
         service.setSvrStatus("新创建");
         service.setSvrCreateId(1L);
         serviceBiz.addService(service);
-        ResponseData responseData = new ResponseData();
-        responseData.setCode(0);
-        responseData.setMessage("创建服务成功");
         return "redirect:/input/jsp/cust/service/add";
     }
 
     @RequestMapping("/loadDispatch")
     public String loadDispatch(HttpServletRequest request, Service service, Model model) {
         Service service1 = serviceBiz.loadService(service);
-        model.addAttribute("s", service1);
-        return "/input/jsp/cust/service/deal_detail";
+        request.setAttribute("s", service1);
+        return "forward:/input/jsp/cust/service/deal_detail";
+    }
+
+    @RequestMapping("/editDispatch1")
+    public String editDispatch1(HttpServletRequest request,Service service) {
+        service.setSvrDealId(1L);
+        service.setSvrStatus("已处理");
+        service.setSvrDealDate(new Date());
+        serviceBiz.editService(service);
+        return "redirect:/input/jsp/cust/service/deal";
+    }
+
+    @RequestMapping("/listFeedBack")
+    @ResponseBody
+    public ResponseData listFeedBack(Service service,HttpServletRequest request) {
+        PageBean pageBean = new PageBean();
+        pageBean.setRequest(request);
+
+        List<Service> serviceList = serviceBiz.list2(service, pageBean);
+        ResponseData responseData = new ResponseData();
+        responseData.setTotal(pageBean.getTotalRecord());
+        responseData.setRows(serviceList);
+        return responseData;
+    }
+
+    @RequestMapping("/loadFeedBack")
+    public String loadFeedBack(HttpServletRequest request, Service service, Model model) {
+        Service service1 = serviceBiz.loadService(service);
+        request.setAttribute("s", service1);
+        return "forward:/input/jsp/cust/service/feedback_detail";
+    }
+
+    @RequestMapping("/editFeedBack")
+    public String editFeedBack(HttpServletRequest request,Service service) {
+        if(service.getSvrSatisfy()<3){
+            service.setSvrStatus("已处理");
+        }else{
+            service.setSvrStatus("已归档");
+        }
+        serviceBiz.editService(service);
+        return "redirect:/input/jsp/cust/service/feedback";
+    }
+
+    @RequestMapping("/listArch")
+    @ResponseBody
+    public ResponseData listArch(Service service, HttpServletRequest request) {
+        PageBean pageBean = new PageBean();
+        pageBean.setRequest(request);
+
+        List<Service> serviceList = serviceBiz.list3(service, pageBean);
+        ResponseData responseData = new ResponseData();
+        responseData.setTotal(pageBean.getTotalRecord());
+        responseData.setRows(serviceList);
+        return responseData;
+    }
+
+    @RequestMapping("/loadArch")
+    public String loadArch(HttpServletRequest request, Service service, Model model) {
+        Service service1 = serviceBiz.loadService(service);
+        request.setAttribute("s", service1);
+        return "forward:/input/jsp/cust/service/detail";
+    }
+
+
+    @RequestMapping("/listGroup")
+    @ResponseBody
+    public List<Integer> listGroup(String yd) {
+        return serviceBiz.listGroup(yd) ;
     }
 }

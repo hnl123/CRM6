@@ -108,7 +108,7 @@
         <!--&lt;!&ndash; <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> &ndash;&gt;-->
         <!--</table>-->
 
-        <table schema="" tableName="t_service" domainObjectName="Service"
+        <table schema="" tableName="t_user" domainObjectName="User"
         enableCountByExample="false" enableDeleteByExample="false"
         enableSelectByExample="false" enableUpdateByExample="false">
         <!-- 忽略列，不生成bean 字段 -->

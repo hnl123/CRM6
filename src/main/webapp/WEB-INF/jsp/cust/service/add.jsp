@@ -23,9 +23,9 @@
 		<td>
 			<select id="svrType" name="svrType">
 				<option>请选择...</option>
-				<option>咨询</option>
-				<option>投诉</option>
-				<option>建议</option>
+				<option value="咨询">咨询</option>
+				<option value="投诉">投诉</option>
+				<option value="建议">建议</option>
 			</select><span class="red_star">*</span>
 		</td>
 	</tr>
@@ -45,7 +45,7 @@
 	</tr>
 	<tr>
 		<th>创建人</th>
-		<td><input name="svrCreateBy" value="刘颖" readonly size="20" id="svrCreateBy"/><span class="red_star">*</span></td>
+		<td><input name="svrCreateBy" value="${sessionScope.user.userName}" readonly size="20" id="svrCreateBy"/><span class="red_star">*</span></td>
 		<th>创建时间</th>
 		<td><input id="svrCreateDate" name="svrCreateDate" readonly size="20" value="<%=new Date()%>"/><span class="red_star">*</span></td>
 	</tr>

@@ -9,9 +9,8 @@
 <meta http-equiv="expires" content="0">
 <script type="text/javascript"src="js/contextPath.jsp"></script>
 <link href="css/css/style.css" rel="stylesheet" type="text/css">
-<%--<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>--%>
-<%--<script type="text/javascript" src="easyui/1.3.4/jquery.easyui.min.js"></script>--%>
-<%--<script type="text/javascript" src="easyui/1.3.4/locale/easyui-lang-zh_CN.js"></script>--%>
+<link rel="stylesheet" type="text/css" href="css/wu.css" />
+<link rel="stylesheet" type="text/css" href="css/icon.css" />
 <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.5.1/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.5.1/themes/icon.css">
 <script type="text/javascript" src="js/jquery-easyui-1.5.1/jquery.min.js"></script>

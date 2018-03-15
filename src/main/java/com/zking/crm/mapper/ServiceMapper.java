@@ -22,4 +22,10 @@ public interface ServiceMapper {
     List<Service> list(Service service);
 
     List<Service> list1(Service service);
+
+    List<Service> list2(Service service);
+
+    List<Service> list3(Service service);
+
+    List<Integer> listGroup(String yd);
 }

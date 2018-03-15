@@ -34,6 +34,8 @@ public class SysTreeNodeController {
     @RequestMapping("/toNode")
     public String toNode(Model model, SysTreeNode sysTreeNode, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String method = request.getParameter("method");
+        System.out.println(method);
+        System.out.println(method);
         List<SysTreeNode> treeNodeList1 = treeNodeBiz.list(sysTreeNode);
         if ("list".equals(method)) {
             model.addAttribute("treeNodeList", treeNodeList1);

@@ -42,7 +42,6 @@ $ (function () {
             text: '分配',
             handler:function () {
                 var rows = $("#ds").datagrid("getSelected");
-                var svrDueTo = $("#svrDueTo").combobox("getValue");
                 if (!rows) {
                     $.messager.alert('警告', '请选择要分配的记录');
                     return;
@@ -59,6 +58,8 @@ $ (function () {
                             text:'保存',
                             iconCls:'icon-save',
                             handler:function(){
+                                var svrDueTo = $("#svrDueTo").combobox("getValue");
+                                alert(svrDueTo);
                                 var url = "service/editDispatch?svrId="+rows.svrId+"&svrDueTo="+svrDueTo;
                                 $.ajax({
                                     dataType:'json',
@@ -68,7 +69,7 @@ $ (function () {
                                             $.messager
                                                 .alert('提示', data.message);
                                             $('#ds').datagrid('reload');
-                                            close();
+                                            $("#dd").dialog('close');
                                         } else {
                                             $.messager.alert('警告', '分配失败');
                                         }
@@ -107,18 +108,17 @@ $ (function () {
             title : '创建日期',
             width : "15%"
         }]]
-
     });
-    $("#reload1").click(function () {
-        var formData = {
-            svrCustName:$("#svrCustName").val()
-            // svrType:$("#svrType").val(),
-            // T1:$("#T1").val(),
-            // T2:$("#T2").val()
+
+    $('#dg').click(function () {
+        var formData={
+            svrCustName:$('#svrCustName').val(),
+            svrType:$('#svrType').val(),
+            // T1:$('#T1').val(),
+            // T2:$('#T2').val()
         };
-        $("#ds").datagrid(function () {
-            alert(formData);
-            queryParams : formData
+        $('#ds').datagrid({
+            queryParams: formData,
         });
         return false;
     });

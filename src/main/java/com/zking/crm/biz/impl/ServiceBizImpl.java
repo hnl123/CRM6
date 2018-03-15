@@ -45,4 +45,18 @@ public class ServiceBizImpl implements IServiceBiz {
         return serviceMapper.selectByPrimaryKey(service.getSvrId());
     }
 
+    @Override
+    public List<Service> list2(Service service, PageBean pageBean) {
+        return serviceMapper.list2(service);
+    }
+
+    @Override
+    public List<Service> list3(Service service, PageBean pageBean) {
+        return serviceMapper.list3(service);
+    }
+
+    @Override
+    public List<Integer> listGroup(String yd) {
+        return serviceMapper.listGroup(yd);
+    }
 }

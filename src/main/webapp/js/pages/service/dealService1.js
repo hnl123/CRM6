@@ -10,11 +10,13 @@ $ (function () {
             text: '处理',
             handler: function () {
                 var rows = $("#ds").datagrid("getSelected");
+
+                // $("#dg").datagrid('load', rows);
                 if (!rows) {
                     $.messager.alert('警告', '请选择要处理的记录');
                     return;
                 }else{
-                    parent.doOpenTab("服务处理","service/loadDispatch?svrId="+rows.svrId)
+                   parent.doOpenTab("服务处理","/service/loadDispatch?svrId="+rows.svrId)
                     // window.open('service/loadDispatch?svrId='+rows.svrId)
                 }
             }
@@ -30,7 +32,7 @@ $ (function () {
             width : "30%"
         }, {
             field : 'svrStatus',
-            title : '服务类型',
+            title : '状态',
             width : "15%"
         }, {
             field:'svrType',
@@ -47,15 +49,15 @@ $ (function () {
         }]]
 
     });
-    $("#listBt").click(function () {
-        var formData = {
-            svrCustName:$("#svrCustName").val()
-            // svrType:$("#svrType").val(),
-            // T1:$("#T1").val(),
-            // T2:$("#T2").val()
+    $('#dg').click(function () {
+        var formData={
+            svrCustName:$('#svrCustName').val(),
+            svrType:$('#svrType').val(),
+            // T1:$('#T1').val(),
+            // T2:$('#T2').val()
         };
-        $("#ds").datagrid(function () {
-            queryParams : formData
+        $('#ds').datagrid({
+            queryParams: formData,
         });
         return false;
     });

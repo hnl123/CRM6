@@ -18,5 +18,11 @@ public interface IServiceBiz {
 
     List<Service> list1(Service service, PageBean pageBean);
 
+    List<Service> list2(Service service, PageBean pageBean);
+
+    List<Service> list3(Service service, PageBean pageBean);
+
     Service loadService(Service service);
+
+    List<Integer> listGroup(String yd);
 }

@@ -48,6 +48,10 @@ public class Service implements Serializable{
     private Date T1;
     private Date T2;
 
+    private Integer serviceCount;
+
+    private String yd;
+
     public Service(Long svrId, String svrType, String svrTitle, String svrCustNo, String svrCustName, String svrStatus, String svrRequest, Long svrCreateId, String svrCreateBy, Date svrCreateDate, String svrDueId, String svrDueTo, Date svrDueDate, String svrDeal, Long svrDealId, String svrDealBy, Date svrDealDate, String svrResult, Integer svrSatisfy) {
         this.svrId = svrId;
         this.svrType = svrType;
@@ -240,6 +244,23 @@ public class Service implements Serializable{
     public void setT2(Date t2) {
         T2 = t2;
     }
+
+    public Integer getServiceCount() {
+        return serviceCount;
+    }
+
+    public void setServiceCount(Integer serviceCount) {
+        this.serviceCount = serviceCount;
+    }
+
+    public String getYd() {
+        return yd;
+    }
+
+    public void setYd(String yd) {
+        this.yd = yd;
+    }
+
     @Override
     public String toString() {
         return "Service{" +

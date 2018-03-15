@@ -19,6 +19,7 @@ public class InputController {
         return path;
     }
 
+
     @RequestMapping("/{dir}/{page}/{one}")
     public String forwardPage2(@PathVariable String dir,
                               @PathVariable String page,@PathVariable String one) {

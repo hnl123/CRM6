@@ -1,5 +1,6 @@
 <html>
 <body>
-<jsp:forward page="sysTreeNode/toNode?method=list"/>
+<%--sysTreeNode/toNode?method=list--%>
+<jsp:forward page="user/toLogin"/>
 </body>
 </html>

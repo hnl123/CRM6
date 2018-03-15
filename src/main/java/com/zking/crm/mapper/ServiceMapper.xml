@@ -45,6 +45,13 @@
       <result column="svr_result" property="svrResult" javaType="java.lang.String" />
       <result column="svr_satisfy" property="svrSatisfy" javaType="java.lang.Integer" />
   </resultMap>
+
+  <resultMap id="kfg" type="com.zking.crm.model.Service">
+    <id column="svr_id" property="svrId" javaType="java.lang.Long" />
+    <result column="svr_type" property="svrType" javaType="java.lang.String" />
+    <result column="count(*)" property="serviceCount" javaType="java.lang.Integer"/>
+  </resultMap>
+
   <sql id="Base_Column_List" >
     svr_id, svr_type, svr_title, svr_cust_no, svr_cust_name, svr_status, svr_request,
     svr_create_id, svr_create_by, svr_create_date, svr_due_id, svr_due_to, svr_due_date,
@@ -61,8 +68,8 @@
     <if test="null!=svrCustName and ''!=svrCustName">
       and svr_cust_name like concat('%',#{svrCustName,jdbcType=VARCHAR },'%')
     </if>
-    <if test="null!=svrStatus and ''!=svrStatus">
-      and svr_status = #{svrStatus,jdbcType=VARCHAR }
+    <if test="null!=svrType and ''!=svrType">
+      and svr_type = #{svrType,jdbcType=VARCHAR }
     </if>
     <if test="null!=T1 and null!=T2">
       and svr_create_date BETWEEN #{T1,jdbcType=DATE} and #{T2,jdbcType=DATE}
@@ -73,12 +80,43 @@
     <if test="null!=svrCustName and ''!=svrCustName">
       and svr_cust_name like concat('%',#{svrCustName,jdbcType=VARCHAR },'%')
     </if>
-    <if test="null!=svrStatus and ''!=svrStatus">
-      and svr_status = #{svrStatus,jdbcType=VARCHAR }
+    <if test="null!=svrType and ''!=svrType">
+      and svr_type = #{svrType,jdbcType=VARCHAR }
     </if>
     <if test="null!=T1 and null!=T2">
       and svr_create_date BETWEEN #{T1,jdbcType=DATE} and #{T2,jdbcType=DATE}
     </if>
+  </select>
+  <select id="list2" resultMap="kfc" parameterType="com.zking.crm.model.Service">
+    select * from t_service where 1=1 and svr_status='已处理'
+    <if test="null!=svrCustName and ''!=svrCustName">
+      and svr_cust_name like concat('%',#{svrCustName,jdbcType=VARCHAR },'%')
+    </if>
+    <if test="null!=svrType and ''!=svrType">
+      and svr_type = #{svrType,jdbcType=VARCHAR }
+    </if>
+    <if test="null!=T1 and null!=T2">
+      and svr_create_date BETWEEN #{T1,jdbcType=DATE} and #{T2,jdbcType=DATE}
+    </if>
+  </select>
+  <select id="list3" resultMap="kfc" parameterType="com.zking.crm.model.Service">
+    select * from t_service where 1=1 and svr_status='已归档'
+    <if test="null!=svrCustName and ''!=svrCustName">
+      and svr_cust_name like concat('%',#{svrCustName,jdbcType=VARCHAR },'%')
+    </if>
+    <if test="null!=svrType and ''!=svrType">
+      and svr_type = #{svrType,jdbcType=VARCHAR }
+    </if>
+    <if test="null!=T1 and null!=T2">
+      and svr_create_date BETWEEN #{T1,jdbcType=DATE} and #{T2,jdbcType=DATE}
+    </if>
+  </select>
+  <select id="listGroup" resultType="java.lang.Integer" parameterType="com.zking.crm.model.Service">
+    select count(*) from t_service
+    <if test="yd!=null">
+      where DATE_FORMAT(svr_create_date,'%Y')=#{yd}
+    </if>
+    GROUP BY svr_type
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_service

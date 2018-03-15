@@ -6,6 +6,8 @@ import com.zking.crm.model.Service;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class ServiceBizImplTest extends BaseTest {
@@ -32,5 +34,14 @@ public class ServiceBizImplTest extends BaseTest {
     @Test
     public void list() throws Exception {
     }
+
+    @Test
+    public void listGroup() throws Exception {
+        List<Integer> serviceList = serviceBiz.listGroup(service.getYd());
+        for (Integer s : serviceList) {
+            System.out.println(s);
+        }
+    }
+
 
 }

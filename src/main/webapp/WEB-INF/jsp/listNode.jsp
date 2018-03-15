@@ -3,25 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="copyright" content="All Rights Reserved, Copyright (C) 2013, Wuyeguo, Ltd." />
     <title>EasyUI Web Admin Power by Wuyeguo</title>
-    <link rel="stylesheet" type="text/css" href="easyui/1.3.4/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="css/wu.css" />
-    <link rel="stylesheet" type="text/css" href="css/icon.css" />
     <%@include file="/common/head.jsp" %>
     <script type="text/javascript" src="js/listNode.js"></script>
 </head>
 <body class="easyui-layout">
 <!-- begin of header -->
 <div class="wu-header" data-options="region:'north',border:false,split:true">
-    <div class="wu-header-left">
-        <h1>EasyUI Web Admin</h1>
-    </div>
-    <div class="wu-header-right">
-        <p><strong class="easyui-tooltip" title="2条未读消息">admin</strong>，欢迎您！</p>
-        <p><a href="#">网站首页</a>|<a href="#">支持论坛</a>|<a href="#">帮助中心</a>|<a href="#">安全退出</a></p>
-    </div>
+    <jsp:include page="/top.jsp"/>
 </div>
 <!-- end of header -->
 <!-- begin of sidebar -->
@@ -42,7 +31,9 @@
 <!-- begin of main -->
 <div class="wu-main" data-options="region:'center'">
     <div id="wu-tabs" class="easyui-tabs" data-options="border:false,fit:true">
-        <div title="首页" data-options="href:'temp/layout-1.html',closable:false,iconCls:'icon-tip',cls:'pd3'"></div>
+        <div title="首页" data-options="href:'temp/layout-1.html',closable:false,iconCls:'icon-tip',cls:'pd3'">
+            <img src="images/welcome.gif">
+        </div>
     </div>
 </div>
 <!-- end of main -->
