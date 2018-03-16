@@ -155,7 +155,7 @@ public class ServiceController {
 
     @RequestMapping("/listGroup")
     @ResponseBody
-    public List<Integer> listGroup(String yd) {
-        return serviceBiz.listGroup(yd) ;
+    public List<Integer> listGroup(Service service,HttpServletRequest request) {
+        return serviceBiz.listGroup(service) ;
     }
 }

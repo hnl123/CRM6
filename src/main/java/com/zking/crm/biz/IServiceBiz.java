@@ -24,5 +24,5 @@ public interface IServiceBiz {
 
     Service loadService(Service service);
 
-    List<Integer> listGroup(String yd);
+    List<Integer> listGroup(Service service);
 }

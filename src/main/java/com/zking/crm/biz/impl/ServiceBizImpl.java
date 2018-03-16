@@ -56,7 +56,7 @@ public class ServiceBizImpl implements IServiceBiz {
     }
 
     @Override
-    public List<Integer> listGroup(String yd) {
-        return serviceMapper.listGroup(yd);
+    public List<Integer> listGroup(Service service) {
+        return serviceMapper.listGroup(service);
     }
 }

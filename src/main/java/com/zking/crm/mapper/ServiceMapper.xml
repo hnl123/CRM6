@@ -112,11 +112,8 @@
     </if>
   </select>
   <select id="listGroup" resultType="java.lang.Integer" parameterType="com.zking.crm.model.Service">
-    select count(*) from t_service
-    <if test="yd!=null">
-      where DATE_FORMAT(svr_create_date,'%Y')=#{yd}
-    </if>
-    GROUP BY svr_type
+    select count(svr_type) from t_service
+     where svr_create_date like CONCAT('%',#{yd},'%') group by svr_type;
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_service

@@ -47,7 +47,7 @@ $ (function () {
                     return;
                 }else{
                     $('#dd').dialog({
-                        title: 'My Dialog',
+                        title: '服务分配',
                         width: 400,
                         height: 200,
                         closed: false,

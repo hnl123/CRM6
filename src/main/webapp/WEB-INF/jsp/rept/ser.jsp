@@ -8,13 +8,9 @@
 	<script type="text/javascript" src="script/jqplot.js"></script>
 	<script type="text/javascript" src="script/m_jqplot.js"></script>
 	<script type="text/javascript">
-//        $(document).ready(function() {
-            function aa() {
-                var yd = $("#yd").val();
+        $(document).ready(function() {
                 $.ajax({
-                    url: "service/listGroup",
-//					data:"yd="+yd,
-                    dataType: "text",
+                    url: "service/listGroup?yd=",
                     success: function (str) {
                         var data = [];
                         var data_max = 15; //Y轴最大刻度
@@ -29,23 +25,41 @@
                         j.jqplot.diagram.base("chart2", data, line_title, "客户服务分析", x, x_label, y_label, data_max, 2);
                     }
                 });
-            }
-//        });
+        });
+
+function ab(a) {
+    $.ajax({
+        url: "service/listGroup?yd="+a,
+        success: function (str) {
+            var data = [];
+            var data_max = 15; //Y轴最大刻度
+            var line_title = []; //曲线名称
+            var y_label = "Y轴"; //Y轴标题
+            var x_label = "X轴"; //X轴标题
+            var x = ["咨询","建议","投诉"]; //定义X轴刻度值
+            var title = "这是标题"; //统计图标标题
+            var dd = eval(str);
+            data.push(dd);
+            j.jqplot.diagram.base("chart2", data, line_title, "客户服务分析", x, x_label, y_label, data_max, 2);
+        }
+    });
+}
 	</script>
 </head>
-<body onload="aa()">
+<body>
 
 <div class="page_title">客户服务分析</div>
 <div class="button_bar">
-	<button class="easyui-linkbutton" iconCls="icon-help" onclick="help('');">帮助</button>
-	<button class="easyui-linkbutton" iconCls="icon-search" onclick="aa()" id="listBt">查询</button>
+	<%--<button class="easyui-linkbutton" iconCls="icon-help" onclick="help('');">帮助</button>--%>
+	<%--<button class="easyui-linkbutton" iconCls="icon-search" id="listBt">查询</button>--%>
 </div>
 <table class="query_form_table">
 	<tr>
 		<th>年份</th>
 		<td>
-			<select id="yd">
-				<option value="2018" selected>2018</option>
+			<select onchange="ab(this.value)">
+				<option>--请选择--</option>
+				<option value="2018">2018</option>
 				<option value="2017">2017</option>
 				<option value="2016">2016</option>
 				<option value="2015">2015</option>

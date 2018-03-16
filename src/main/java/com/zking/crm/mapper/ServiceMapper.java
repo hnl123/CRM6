@@ -27,5 +27,5 @@ public interface ServiceMapper {
 
     List<Service> list3(Service service);
 
-    List<Integer> listGroup(String yd);
+    List<Integer> listGroup(Service service);
 }

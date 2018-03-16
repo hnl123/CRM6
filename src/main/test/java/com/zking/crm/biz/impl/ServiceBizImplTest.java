@@ -37,7 +37,7 @@ public class ServiceBizImplTest extends BaseTest {
 
     @Test
     public void listGroup() throws Exception {
-        List<Integer> serviceList = serviceBiz.listGroup(service.getYd());
+        List<Integer> serviceList = serviceBiz.listGroup(service);
         for (Integer s : serviceList) {
             System.out.println(s);
         }
