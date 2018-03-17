@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -76,6 +77,18 @@ public class DictController {
     public String addDict(Dict dict){
         dictBiz.addDict(dict);
         return "redirect:/input/jsp/basd/dict";
+    }
+
+    @RequestMapping("/listIn")
+    @ResponseBody
+    public List<Integer> listIn() {
+        List<Integer> l = new ArrayList<Integer>();
+        l.add(220);
+        l.add(350);
+        l.add(100);
+        l.add(290);
+        l.add(300);
+        return l;
     }
 
 }

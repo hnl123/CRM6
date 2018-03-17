@@ -14,7 +14,7 @@ $ (function () {
                     $.messager.alert('警告', '请选择要处理的记录');
                     return;
                 }else{
-                    parent.doOpenTab("服务处理","/service/loadFeedBack?svrId="+rows.svrId)
+                    parent.doOpenTab("服务反馈处理","/service/loadFeedBack?svrId="+rows.svrId)
                 }
             }
         }],

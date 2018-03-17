@@ -36,7 +36,7 @@
 		<th>创建人</th>
 		<td>${s.svrCreateBy}</td>
 		<th>创建时间</th>
-		<td><fmt:formatDate value="${s.svrCreateDate}" type="Date" pattern="yyyy-MM-dd"/></td>
+		<td><fmt:formatDate value="${s.svrCreateDate}" type="Date" pattern="yyyy年MM月dd日"/></td>
 	</tr>
 </table>
 <br />
@@ -46,7 +46,7 @@
 		<td>
 			${s.svrDueTo}</td>
 		<th>分配时间</th>
-		<td><fmt:formatDate value="${s.svrDueDate}" type="Date" pattern="yyyy-MM-dd"/></td>
+		<td><fmt:formatDate value="${s.svrDueDate}" type="Date" pattern="yyyy年MM月dd日"/></td>
 	</tr>
 </table>
 <br />
@@ -58,12 +58,12 @@
 	</tr>
 	<tr>
 		<th>处理人</th>
-		<td><input name="svrDealBy" value="刘颖" readonly size="20" />
+		<td><input name="svrDealBy" value="${sessionScope.user.userName}" readonly size="20" />
 			<input type="hidden" value="${s.svrId}" name="svrId"/>
 
 			<span class="red_star">*</span></td>
 		<th>处理时间</th>
-		<td><input id="t3" name="svrDealDate" disabled readonly size="20" /><span class="red_star">*</span></td>
+		<td><input id="t3" value="系统自动识别当前时间" disabled readonly size="20" /><span class="red_star">*</span></td>
 	</tr>
 </table>
 <br />

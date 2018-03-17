@@ -46,7 +46,7 @@
 		<th>创建人</th>
 		<td>${s.svrCreateBy}</td>
 		<th>创建时间</th>
-		<td><fmt:formatDate value="${s.svrCreateDate}" type="Date" pattern="yyyy-MM-dd"/></td>
+		<td><fmt:formatDate value="${s.svrCreateDate}" type="Date" pattern="yyyy年MM月dd日"/></td>
 	</tr>
 </table>
 <br />
@@ -56,7 +56,7 @@
 		<td>
 			${s.svrDueTo}</td>
 		<th>分配时间</th>
-		<td><fmt:formatDate value="${s.svrDueDate}" type="Date" pattern="yyyy-MM-dd"/></td>
+		<td><fmt:formatDate value="${s.svrDueDate}" type="Date" pattern="yyyy年MM月dd日"/></td>
 	</tr>
 </table>
 <br />
@@ -69,7 +69,7 @@
 		<th>处理人</th>
 		<td>${s.svrDealBy}</td>
 		<th>处理时间</th>
-		<td><fmt:formatDate value="${s.svrDealDate}" type="Date" pattern="yyyy-MM-dd"/></td>
+		<td><fmt:formatDate value="${s.svrDealDate}" type="Date" pattern="yyyy年MM月dd日"/></td>
 	</tr>
 </table>
 <br />
@@ -77,7 +77,7 @@
 <table class="query_form_table" id="table2">
 	<tr>
 		<th>处理结果</th>
-		<td><input name="svrResult" size="20" />
+		<td><input name="svrResult" value="${s.svrResult}" size="20" />
 			<input value="${s.svrId}" name="svrId" type="hidden"/>
 			<span class="red_star">*</span></td>
 		<th>满意度</th>
